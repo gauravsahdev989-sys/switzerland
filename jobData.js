@@ -1,4 +1,4 @@
-// Job data generator - deterministically generates 100,000 jobs for Dubai/UAE
+// Job data generator - deterministically generates 100,000 jobs for Switzerland
 const TOTAL_JOBS = 100000;
 
 const jobTitles = [
@@ -29,74 +29,86 @@ const jobTitles = [
   "Scrum Master", "Agile Coach", "Release Manager", "Site Reliability Engineer",
   "Penetration Tester", "Cloud Engineer", "Platform Engineer", "API Developer",
   "Hotel Manager", "Restaurant Manager", "Chef", "Sommelier", "Event Manager",
-  "Aviation Engineer", "Pilot", "Flight Attendant", "Airport Manager"
+  "Banking Analyst", "Wealth Manager", "Financial Advisor", "Investment Analyst",
+  "Pharmaceutical Researcher", "Biotech Scientist", "Lab Technician", "Medical Writer"
 ];
 
-// 75+ Dubai/UAE based companies + global companies with UAE presence
+// 75+ Swiss companies + global companies with Swiss presence
 const companies = [
-  // UAE/Dubai based
-  "Emirates Group", "Dubai Holding", "Emaar Properties", "DP World", "Dubai World",
-  "Abu Dhabi National Oil Company (ADNOC)", "Etihad Airways", "Flydubai", "Air Arabia",
-  "Al Habtoor Group", "Al Futtaim Group", "Dubai Islamic Bank", "Emirates NBD",
-  "Abu Dhabi Commercial Bank", "First Abu Dhabi Bank", "Mashreq Bank", "RAK Bank",
-  "Dubai Investments", "DAMAC Properties", "Nakheel", "Meraas", "Al Tayer Group",
-  "Jumeirah Group", "Atlantis The Palm", "Burj Al Arab", "Emirates Airlines",
+  // Swiss companies
+  "Nestlé", "Novartis", "Roche", "UBS", "Credit Suisse", "Zurich Insurance",
+  "Swiss Re", "ABB", "Siemens Switzerland", "Philip Morris International",
+  "Glencore", "Syngenta", "Lonza", "Givaudan", "Firmenich", "Sika",
+  "Holcim", "Kuehne + Nagel", "Swisscom", "PostFinance", "Migros",
+  "Coop", "Swatch Group", "Rolex", "Patek Philippe", "Richemont",
+  "Clariant", "EMS-Chemie", "Galenica", "Logitech", "STMicroelectronics",
+  "Swiss International Air Lines", "MSC Cruises", "Lindt & Sprüngli",
+  "Nespresso", "Oerlikon", "Georg Fischer", "Bühler", "F. Hoffmann-La Roche",
+  "Bayer Switzerland", "Pfizer Switzerland", "GSK Switzerland",
   
-  // Global with UAE presence
-  "Google", "Amazon", "Microsoft", "Apple", "Meta", "Tesla", "Netflix",
-  "IBM", "Oracle", "Cisco", "Dell", "HP", "SAP", "Salesforce",
-  "Accenture", "Deloitte", "PwC", "KPMG", "EY", "McKinsey", "Boston Consulting Group",
-  "HSBC", "Standard Chartered", "Citi", "JPMorgan Chase", "Goldman Sachs",
-  "Unilever", "P&G", "Nestle", "Coca-Cola", "PepsiCo",
-  "Shell", "BP", "TotalEnergies", "ExxonMobil", "Chevron",
-  "Siemens", "GE", "Schneider Electric", "ABB", "Honeywell",
-  "Boeing", "Airbus", "Rolls-Royce", "Lockheed Martin",
-  "Pfizer", "Novartis", "Roche", "GSK", "Johnson & Johnson",
-  "Samsung", "LG", "Sony", "Panasonic", "Toshiba",
-  "Toyota", "Honda", "Nissan", "BMW", "Mercedes-Benz",
-  "LVMH", "Kering", "Chanel", "Gucci", "Rolex"
+  // Global with Swiss presence
+  "Google Switzerland", "Microsoft Switzerland", "Apple Switzerland",
+  "Amazon Switzerland", "Meta Switzerland", "IBM Switzerland",
+  "Oracle Switzerland", "SAP Switzerland", "Deloitte Switzerland",
+  "PwC Switzerland", "EY Switzerland", "KPMG Switzerland",
+  "Accenture Switzerland", "BCG Switzerland", "McKinsey Switzerland",
+  "HSBC Switzerland", "Barclays Switzerland", "JPMorgan Switzerland",
+  "Goldman Sachs Switzerland", "Citi Switzerland",
+  "Unilever Switzerland", "P&G Switzerland", "Coca-Cola Switzerland",
+  "PepsiCo Switzerland", "Nestlé Waters", "Danone Switzerland",
+  "Shell Switzerland", "BP Switzerland", "TotalEnergies Switzerland",
+  "Schneider Electric Switzerland", "Honeywell Switzerland",
+  "Boeing Switzerland", "Airbus Switzerland", "Rolls-Royce Switzerland",
+  "Samsung Switzerland", "Sony Switzerland", "Panasonic Switzerland",
+  "Toyota Switzerland", "BMW Switzerland", "Mercedes-Benz Switzerland",
+  "LVMH Switzerland", "Chanel Switzerland", "Gucci Switzerland"
 ];
 
-const dubaiLocations = [
-  // Dubai
-  "Downtown Dubai, Dubai", "Dubai Marina, Dubai", "Jumeirah, Dubai", "Business Bay, Dubai",
-  "Dubai Silicon Oasis, Dubai", "Dubai Internet City, Dubai", "Media City, Dubai",
-  "JLT (Jumeirah Lakes Towers), Dubai", "DIFC (Dubai International Financial Centre), Dubai",
-  "Al Barsha, Dubai", "Deira, Dubai", "Bur Dubai, Dubai", "Karama, Dubai",
-  "Al Satwa, Dubai", "Jebel Ali, Dubai", "Dubai South, Dubai", "Al Quoz, Dubai",
-  "Emirates Hills, Dubai", "Palm Jumeirah, Dubai", "The World Islands, Dubai",
-  "Al Wasl, Dubai", "Al Nahda, Dubai", "Mirdif, Dubai", "Al Warqa, Dubai",
-  "Al Garhoud, Dubai", "Oud Metha, Dubai", "Al Rigga, Dubai", "Al Raffa, Dubai",
+const swissLocations = [
+  // Zurich
+  "Zürich, ZH", "Winterthur, ZH", "Uster, ZH", "Dübendorf, ZH", "Dietikon, ZH",
+  "Wetzikon, ZH", "Bülach, ZH", "Horgen, ZH", "Oberglatt, ZH", "Schlieren, ZH",
+  "Zollikon, ZH", "Küsnacht, ZH", "Rüschlikon, ZH", "Thalwil, ZH", "Adliswil, ZH",
   
-  // Abu Dhabi
-  "Abu Dhabi City, Abu Dhabi", "Al Reem Island, Abu Dhabi", "Yas Island, Abu Dhabi",
-  "Al Raha Beach, Abu Dhabi", "Khalifa City, Abu Dhabi", "Al Ain, Abu Dhabi",
-  "Saadiyat Island, Abu Dhabi", "Corniche, Abu Dhabi", "Al Maryah Island, Abu Dhabi",
-  "Mohamed Bin Zayed City, Abu Dhabi", "Mussafah, Abu Dhabi",
+  // Geneva
+  "Genève, GE", "Versoix, GE", "Carouge, GE", "Meyrin, GE", "Vernier, GE",
+  "Lancy, GE", "Chêne-Bougeries, GE", "Plan-les-Ouates, GE", "Onex, GE",
   
-  // Sharjah
-  "Sharjah City, Sharjah", "Al Majaz, Sharjah", "Al Khan, Sharjah", "Al Nahda, Sharjah",
-  "Muwaileh, Sharjah", "Al Tai, Sharjah",
+  // Basel
+  "Basel, BS", "Riehen, BS", "Bettingen, BS",
+  "Basel-Landschaft", "Allschwil, BL", "Reinach, BL", "Münchenstein, BL",
   
-  // Other Emirates
-  "Ajman City, Ajman", "Ras Al Khaimah, RAK", "Fujairah City, Fujairah",
-  "Umm Al Quwain, UAQ", "Al Jazirah, UAQ",
+  // Bern
+  "Bern, BE", "Köniz, BE", "Biel/Bienne, BE", "Burgdorf, BE", "Langenthal, BE",
+  "Ostermundigen, BE", "Steffisburg, BE", "Spiez, BE", "Münsingen, BE",
+  
+  // Lausanne & Vaud
+  "Lausanne, VD", "Yverdon-les-Bains, VD", "Montreux, VD", "Vevey, VD",
+  "Pully, VD", "Renens, VD", "Nyon, VD", "Morges, VD", "Aigle, VD",
+  
+  // Other regions
+  "Luzern, LU", "Zug, ZG", "St. Gallen, SG", "Rapperswil-Jona, SG",
+  "Fribourg, FR", "Neuchâtel, NE", "La Chaux-de-Fonds, NE",
+  "Schaffhausen, SH", "Chur, GR", "Davos, GR", "Sion, VS", "Sierre, VS",
+  "Brig-Glis, VS", "Thun, BE", "Kriens, LU", "Emmen, LU", "Baden, AG",
+  "Wettingen, AG", "Olten, SO", "Aarau, AG", "Solothurn, SO",
+  "Bellinzona, TI", "Lugano, TI", "Locarno, TI", "Chur, GR",
   
   // Remote
-  "Remote — UAE", "Remote — Dubai, UAE"
+  "Remote — Switzerland", "Remote — Swiss"
 ];
 
 const salaryRanges = [
-  { display: "AED 5,000 – 8,000/month", min: 5000, max: 8000 },
-  { display: "AED 8,000 – 12,000/month", min: 8000, max: 12000 },
-  { display: "AED 12,000 – 18,000/month", min: 12000, max: 18000 },
-  { display: "AED 18,000 – 25,000/month", min: 18000, max: 25000 },
-  { display: "AED 25,000 – 35,000/month", min: 25000, max: 35000 },
-  { display: "AED 35,000 – 50,000/month", min: 35000, max: 50000 },
-  { display: "AED 50,000 – 75,000/month", min: 50000, max: 75000 },
-  { display: "AED 75,000 – 100,000/month", min: 75000, max: 100000 },
-  { display: "AED 100,000+/month", min: 100000, max: 150000 },
-  { display: "AED 3,000 – 5,000/month", min: 3000, max: 5000 }
+  { display: "CHF 4,000 – 6,000/month", min: 4000, max: 6000 },
+  { display: "CHF 6,000 – 8,000/month", min: 6000, max: 8000 },
+  { display: "CHF 8,000 – 10,000/month", min: 8000, max: 10000 },
+  { display: "CHF 10,000 – 13,000/month", min: 10000, max: 13000 },
+  { display: "CHF 13,000 – 16,000/month", min: 13000, max: 16000 },
+  { display: "CHF 16,000 – 20,000/month", min: 16000, max: 20000 },
+  { display: "CHF 20,000 – 25,000/month", min: 20000, max: 25000 },
+  { display: "CHF 25,000 – 30,000/month", min: 25000, max: 30000 },
+  { display: "CHF 30,000+/month", min: 30000, max: 45000 },
+  { display: "CHF 3,500 – 5,000/month", min: 3500, max: 5000 }
 ];
 
 const jobTypes = ["FULL_TIME", "CONTRACTOR", "PART_TIME", "INTERN", "TEMPORARY"];
@@ -119,16 +131,17 @@ const experienceLevels = [
 ];
 
 const industries = [
-  "Technology", "Fintech", "E-commerce", "Banking & Finance", "Oil & Gas",
+  "Technology", "Fintech", "E-commerce", "Banking & Finance", "Pharmaceuticals",
   "Real Estate", "Healthcare", "Education", "Consulting", "Aviation",
-  "Construction", "Logistics & Shipping", "Hospitality", "Retail", "Media & Entertainment",
-  "Renewable Energy", "Automotive", "Telecommunications", "Legal", "Government"
+  "Construction", "Logistics & Shipping", "Hospitality", "Retail", "Luxury Goods",
+  "Renewable Energy", "Automotive", "Telecommunications", "Legal", "Government",
+  "Food & Beverage", "Chemical", "Biotechnology", "Insurance", "Manufacturing"
 ];
 
 const jobDescriptions = [
-  (title, company, isRemote, location) => `We are seeking a talented ${title} to join the team at ${company} in Dubai. ${isRemote ? "This is a fully remote role open to qualified candidates across the UAE." : `This role is based in ${location}.`}
+  (title, company, isRemote, location) => `We are seeking a talented ${title} to join the team at ${company} in Switzerland. ${isRemote ? "This is a fully remote role open to qualified candidates across Switzerland." : `This role is based in ${location}.`}
 
-You will be responsible for delivering high-quality work that drives business outcomes and contributes to ${company}'s growing operations in the UAE and Middle East region.
+You will be responsible for delivering high-quality work that drives business outcomes and contributes to ${company}'s growing operations in Switzerland and across Europe.
 
 Key Responsibilities:
 • Lead and execute core ${title.toLowerCase()} functions across the organization
@@ -140,31 +153,32 @@ Key Responsibilities:
 Requirements:
 • 3–5 years of experience in a similar ${title.toLowerCase()} role
 • Strong communication and problem-solving skills
-• Experience working in fast-paced global tech/business environment
+• Experience working in fast-paced global business environment
 • Bachelor's degree in a relevant field
 • Proficiency with modern tools and platforms
+• Fluent in English (German/French is a plus)
 
 What We Offer:
-• Competitive salary in AED
-• Health insurance for you and family
-• 30 days annual leave
+• Competitive salary in CHF
+• Health insurance (Swiss standard)
+• 25+ days annual leave
 • Remote work allowance
 • Annual performance bonus
 • Professional development budget
-• Tax-free income in Dubai`,
+• Excellent work-life balance`,
 
-  (title, company, isRemote, location) => `${company} is hiring a ${title}! We are a leading company in Dubai looking for experienced professionals to scale our impact across the UAE and Middle East.
+  (title, company, isRemote, location) => `${company} is hiring a ${title}! We are a leading company in Switzerland looking for experienced professionals to scale our impact across the country and beyond.
 
-${isRemote ? "This remote-first position allows you to work from anywhere in the UAE with flexible hours." : `You will work from our ${location} office with a dynamic, ambitious team.`}
+${isRemote ? "This remote-first position allows you to work from anywhere in Switzerland with flexible hours." : `You will work from our ${location} office with a dynamic, ambitious team.`}
 
 About the Role:
-As a ${title} at ${company}, you will play a key role in shaping our products and services. You'll work closely with leadership and peers to execute on our mission in one of the world's fastest-growing economies.
+As a ${title} at ${company}, you will play a key role in shaping our products and services. You'll work closely with leadership and peers to execute on our mission in one of the world's most innovative economies.
 
 What You'll Do:
 • Drive key ${title.toLowerCase()} initiatives from planning to execution
 • Build and maintain relationships with key stakeholders
 • Report on KPIs and contribute to strategic planning
-• Stay updated on industry trends globally and in the UAE
+• Stay updated on industry trends globally and in Switzerland
 • Represent ${company} with professionalism and integrity
 
 What You Bring:
@@ -172,15 +186,16 @@ What You Bring:
 • Strong analytical and communication skills
 • Team player with a growth mindset
 • Relevant certification or degree preferred
+• Swiss work permit or EU/EFTA citizenship preferred
 
 Compensation & Benefits:
-• Competitive AED salary • Tax-free income • Health insurance • Annual leave (30 days) • Education allowance • Housing allowance (for eligible positions)`,
+• Competitive CHF salary • Swiss health insurance • 25 days annual leave • Education allowance • Excellent pension plan • Flexible working hours`,
 
-  (title, company, isRemote, location) => `Join ${company} as a ${title} and be part of one of Dubai's most exciting companies!
+  (title, company, isRemote, location) => `Join ${company} as a ${title} and be part of one of Switzerland's most exciting companies!
 
-${isRemote ? "🌐 Remote | Work from anywhere in the UAE" : `📍 ${location}`}
+${isRemote ? "🌐 Remote | Work from anywhere in Switzerland" : `📍 ${location}`}
 
-We're building the future of business in the Middle East and need exceptional talent like you. This is a rare opportunity to work with a world-class brand while enjoying the tax-free lifestyle of Dubai.
+We're building the future of business in the Swiss market and need exceptional talent like you. This is a rare opportunity to work with a world-class brand while enjoying the exceptional quality of life Switzerland offers.
 
 The Opportunity:
 You'll be taking on the ${title} role at a critical growth stage. Your work will directly impact millions of customers across the region.
@@ -197,9 +212,10 @@ Your Profile:
 • Comfortable in a fast-moving global business ecosystem
 • Strong interpersonal skills and professional work ethic
 • Degree in relevant discipline (Master's is a plus)
+• Languages: English required; German, French, or Italian a plus
 
 Perks at ${company}:
-Tax-free salary | Health insurance | Housing allowance (optional) | Annual flight allowance | Education allowance | 30 days leave | Performance bonus | Learning budget | Gym membership`
+Competitive CHF salary | Swiss health insurance | Pension fund | Education allowance | 25+ days leave | Performance bonus | Learning budget | Gym membership | Excellent work-life balance`
 ];
 
 function seededRandom(seed) {
@@ -216,7 +232,7 @@ function getJobData(id) {
   const companyIndex = Math.floor((id - 1) / Math.ceil(TOTAL_JOBS / companies.length)) % companies.length;
 
   const titleIndex   = Math.floor(r(1) * jobTitles.length);
-  const locationIndex= Math.floor(r(3) * dubaiLocations.length);
+  const locationIndex= Math.floor(r(3) * swissLocations.length);
   const salaryIndex  = Math.floor(r(4) * salaryRanges.length);
   const jobTypeIndex = Math.floor(r(5) * jobTypes.length);
   const expIndex     = Math.floor(r(6) * experienceLevels.length);
@@ -225,12 +241,12 @@ function getJobData(id) {
 
   const title    = jobTitles[titleIndex];
   const company  = companies[companyIndex];
-  const location = isRemote ? "Remote — UAE" : dubaiLocations[locationIndex];
+  const location = isRemote ? "Remote — Switzerland" : swissLocations[locationIndex];
   const salary   = salaryRanges[salaryIndex];
   const jobType  = jobTypes[jobTypeIndex];
   const exp      = experienceLevels[expIndex];
   const industry = industries[industryIndex];
-  const description = jobDescriptions[descIndex](title, company, isRemote, dubaiLocations[locationIndex]);
+  const description = jobDescriptions[descIndex](title, company, isRemote, swissLocations[locationIndex]);
 
   const daysAgo = Math.floor(r(9) * 60);
   const postedDate = new Date();
@@ -268,7 +284,7 @@ function getJobSchema(job) {
     "identifier": {
       "@type": "PropertyValue",
       "name": job.company,
-      "value": `JOB-AE-${String(job.id).padStart(6, '0')}`
+      "value": `JOB-CH-${String(job.id).padStart(6, '0')}`
     },
     "datePosted": job.postedDate,
     "validThrough": `${job.validThrough}T00:00:00Z`,
@@ -282,17 +298,17 @@ function getJobSchema(job) {
       "@type": "Place",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": job.isRemote ? "Dubai" : job.location.split(',')[0],
-        "addressCountry": "AE"
+        "addressLocality": job.isRemote ? "Switzerland" : job.location.split(',')[0],
+        "addressCountry": "CH"
       }
     },
     "applicantLocationRequirements": {
       "@type": "Country",
-      "name": "United Arab Emirates"
+      "name": "Switzerland"
     },
     "baseSalary": {
       "@type": "MonetaryAmount",
-      "currency": "AED",
+      "currency": "CHF",
       "value": {
         "@type": "QuantitativeValue",
         "minValue": job.salaryMin,
@@ -317,4 +333,4 @@ function getJobSchema(job) {
   return schema;
 }
 
-module.exports = { getJobData, getJobSchema, TOTAL_JOBS, jobTitles, companies, dubaiLocations, industries };
+module.exports = { getJobData, getJobSchema, TOTAL_JOBS, jobTitles, companies, swissLocations, industries };
