@@ -1,7 +1,7 @@
 {
-  "name": "dubai-jobs-portal",
+  "name": "switzerland-jobs-portal",
   "version": "1.0.0",
-  "description": "Dubai Jobs Portal - 100,000 Job Listings | UAE",
+  "description": "Switzerland Jobs Portal - 100,000 Job Listings | Swiss",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
