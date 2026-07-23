@@ -20,7 +20,7 @@ const AD_SCRIPT = `
     'params' : {}
   };
 </script>
-<script src="https://www.highperformanceformat.com/72b6f3ac3fc2f43722e5f2196ef85add/invoke.js"></script>
+<script src="https://www.highperformanceformat.com/f12a3e80a93f81b2f6265220124553b8/invoke.js"></script>
 `;
 
 const AD_TOP = `
