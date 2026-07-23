@@ -165,14 +165,14 @@ ${AD_TOP}
     <div>
 <script>
   atOptions = {
-    'key' : 'd1b072857c7132ec474a48b3413701e2',
+    'key' : 'b7c202ffa1f397b7535b9852781569ba',
     'format' : 'iframe',
     'height' : 60,
     'width' : 468,
     'params' : {}
   };
 </script>
-<script src="https://www.highperformanceformat.com/d1b072857c7132ec474a48b3413701e2/invoke.js"></script>
+<script src="https://www.highperformanceformat.com/b7c202ffa1f397b7535b9852781569ba/invoke.js"></script>
 </div>
 </div>
 ${bodyContent}
