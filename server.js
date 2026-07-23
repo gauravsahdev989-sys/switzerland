@@ -13,7 +13,7 @@ app.use(express.static('public'));
 const AD_SCRIPT = `
 <script>
   atOptions = {
-    'key' : '72b6f3ac3fc2f43722e5f2196ef85add',
+    'key' : 'f12a3e80a93f81b2f6265220124553b8',
     'format' : 'iframe',
     'height' : 90,
     'width' : 728,
